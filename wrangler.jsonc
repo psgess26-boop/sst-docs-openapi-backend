@@ -1,0 +1,16 @@
+{
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "sst-docs-openapi-backend",
+	"upload_source_maps": true,
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "sst-docs-openapi-db",
+			"database_id": "44406b2f-dc77-483d-9861-668a8d5c7c9d"
+		}
+	]
+}
