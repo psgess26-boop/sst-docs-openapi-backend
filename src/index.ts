@@ -42,7 +42,17 @@ const openapi = fromHono(app, {
 		},
 	},
 });
-
+openapi.registry.registerComponent(
+	"securitySchemes",
+	"bearerAuth",
+	{
+		type: "http",
+		scheme: "bearer",
+		bearerFormat: "Opaque Token",
+		description:
+			"Token interno utilizado pela plataforma SST Docs para acessar os endpoints protegidos.",
+	},
+);
 // Register Tasks Sub router
 openapi.route("/tasks", tasksRouter);
 
