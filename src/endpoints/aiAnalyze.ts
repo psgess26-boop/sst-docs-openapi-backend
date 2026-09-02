@@ -35,7 +35,7 @@ export class AiAnalyzeEndpoint extends OpenAPIRoute {
 			headers: z.object({
 				authorization: z
 	.string()
-	.optional()
+	.nullish()
 	.describe("Bearer token interno da SST Docs"),
 			}),
 
