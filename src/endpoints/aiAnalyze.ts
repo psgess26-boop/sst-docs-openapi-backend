@@ -30,14 +30,13 @@ export class AiAnalyzeEndpoint extends OpenAPIRoute {
 		tags: ["AI"],
 		summary: "Executa uma análise utilizando OpenAI",
 		operationId: "ai-analyze",
-
+security: [
+	{
+		bearerAuth: [],
+	},
+],
 		request: {
-			headers: z.object({
-				authorization: z
-	.string()
-	.nullish()
-	.describe("Bearer token interno da SST Docs"),
-			}),
+			
 
 			body: contentJson(
 				z.object({
@@ -93,9 +92,7 @@ export class AiAnalyzeEndpoint extends OpenAPIRoute {
 		 * Segurança:
 		 * somente a SST Docs poderá utilizar este endpoint.
 		 */
-		const authorization =
-			c.req.header("Authorization") ??
-			data.headers.authorization;
+		const authorization = c.req.header("Authorization");
 
 		const expectedAuthorization =
 			`Bearer ${c.env.SST_INTERNAL_API_TOKEN}`;
